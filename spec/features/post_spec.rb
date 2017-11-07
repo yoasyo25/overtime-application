@@ -2,10 +2,17 @@ require 'rails_helper'
 
 describe 'navigate' do
   before do
-    visit posts_path
+    @user =  User.create(email: 'test1@test.com', password: 'asdfasdf',
+      password_confirmation: 'asdfasdf', first_name: "John",
+      last_name: 'Snow')
+      login_as(@user, :scope => :user)
   end
 
   describe 'index' do
+    before do
+      visit posts_path
+    end
+
     it 'can be reached successfully' do
       expect(page.status_code).to eq(200)
     end
@@ -13,14 +20,21 @@ describe 'navigate' do
     it 'has a title of Posts' do
       expect(page).to have_content(/Posts/)
     end
+
+    it 'has a list of posts' do
+      @post1 = @user.posts.create!(date: Date.today, rationale: "Something")
+      @post2 = @user.posts.create!(date: Date.today, rationale: "Anything")
+      visit posts_path
+      expect(page).to have_content(/Something|Anything/)
+    end
   end
 
   describe "creation" do
     before do
-      user =  User.create(email: 'test@test.com', password: 'asdfasdf',
-                          password_confirmation: 'asdfasdf', first_name: "John",
-                          last_name: 'Snow')
-      login_as(user, :scope => :user)
+      user =  User.create(email: 'test2@test.com', password: 'asdfasdf',
+        password_confirmation: 'asdfasdf', first_name: "John",
+        last_name: 'Snow')
+        login_as(user, :scope => :user)
       visit new_post_path
     end
 
