@@ -1,8 +1,13 @@
-@user =  User.create(email: 'test1@test.com', password: 'asdfasdf',
+@user =  User.create(email: 'user@test.com', password: 'asdfasdf',
   password_confirmation: 'asdfasdf', first_name: "John",
   last_name: 'Snow')
 
+admin =  User.create(email: 'admin@test.com', password: 'asdfasdf',
+  password_confirmation: 'asdfasdf', first_name: "John",
+  last_name: 'Snow', type: "AdminUser")
+
 puts "1 User created"
+puts "1 Admin created"
 
 100.times do |post|
   Post.create!(date: Date.today, rationale: "#{post + 1}: Posting",
