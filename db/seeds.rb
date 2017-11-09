@@ -1,10 +1,10 @@
 @user =  User.create(email: 'user@test.com', password: 'asdfasdf',
-  password_confirmation: 'asdfasdf', first_name: "John",
-  last_name: 'Snow')
+                    password_confirmation: 'asdfasdf', first_name: "John",
+                    last_name: 'Snow', phone: "2024685847")
 
 admin =  User.create(email: 'admin@test.com', password: 'asdfasdf',
-  password_confirmation: 'asdfasdf', first_name: "John",
-  last_name: 'Snow', type: "AdminUser")
+                    password_confirmation: 'asdfasdf', first_name: "John",
+                    last_name: 'Snow', type: "AdminUser", phone: "123456789")
 
 puts "1 User created"
 puts "1 Admin created"
