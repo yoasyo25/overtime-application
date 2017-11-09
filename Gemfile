@@ -40,3 +40,4 @@ gem 'administrate'
 gem 'bourbon'
 gem 'pundit', '~> 1.1'
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
+gem "figaro"
