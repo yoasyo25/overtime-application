@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.9'
+  gem "launchy"
 end
 
 group :development do
