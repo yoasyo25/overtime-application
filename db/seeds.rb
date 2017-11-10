@@ -7,14 +7,16 @@ admin =  User.create(email: 'admin@test.com', password: 'asdfasdf',
                     last_name: 'Snow', phone: "2024685847")
 
 
-100.times do |audit_log|
-  AuditLog.create(user_id: @user.id, status: 0,
-                 start_date: (Date.today - 6.days), end_date: nil)
-end
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days),
+                end_date: nil)
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 13.days),
+                end_date: nil)
+AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 20.days),
+                end_date: nil)
 
 puts "1 User created"
 puts "1 Admin created"
-puts "100 Audit logs created"
+puts "3 Audit logs created"
 
 100.times do |post|
   Post.create!(date: Date.today, rationale: "#{post + 1}: Justo tortor maecenas
