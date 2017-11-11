@@ -1,17 +1,17 @@
-admin =  User.create(email: 'admin@test.com', password: 'asdfasdf',
+admin =  AdminUser.create(email: 'yoasyo@ucla.edu', password: 'asdfasdf',
   password_confirmation: 'asdfasdf', first_name: "John",
-  last_name: 'Snow', type: "AdminUser", phone: "1234567890")
+  last_name: 'Snow', phone: "1234567890")
 
-@user =  User.create(email: 'user@test.com', password: 'asdfasdf',
+@employee =  Employee.create(email: 'user@test.com', password: 'asdfasdf',
                     password_confirmation: 'asdfasdf', first_name: "John",
                     last_name: 'Snow', phone: "2024685847")
 
 
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 6.days),
+AuditLog.create(user_id: @employee.id, status: 0, start_date: (Date.today - 6.days),
                 end_date: nil)
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 13.days),
+AuditLog.create(user_id: @employee.id, status: 0, start_date: (Date.today - 13.days),
                 end_date: nil)
-AuditLog.create(user_id: @user.id, status: 0, start_date: (Date.today - 20.days),
+AuditLog.create(user_id: @employee.id, status: 0, start_date: (Date.today - 20.days),
                 end_date: nil)
 
 puts "1 User created"
@@ -29,7 +29,7 @@ puts "3 Audit logs created"
               odio, laoreet amet, nam ultricies morbi aenean id nunc, vestibulum
               cubilia risus amet vel, vitae eget gravida curabitur nec tempus.
               Dapibus dignissim suscipit, et convallis.",
-              user_id: @user.id, overtime_request: 2.5)
+              user_id: @employee.id, overtime_request: 2.5)
 end
 
 puts "100 posts have been created"
